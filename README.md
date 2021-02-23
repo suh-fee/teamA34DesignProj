@@ -9,3 +9,9 @@ Users may also add files for viewing to their Flare account, such as images or P
 User can also add unique website links to their Flare account, allowing easy portfolio sharing alongside allowing users to add any profiles not officially supported by Flare yet.
 
 TEAM: Ailyn, Maria, Nassir, Safi
+
+APIs we are aiming to connect to/Features we are planning to add:
+- Milestone 1: Generic URLs
+- Milestone 2: Twitter, Facebook
+- Milestone 3: LinkedIn, Instagram
+- Milestone 4: Generic Files (pdf, doc, jpeg)
