@@ -15,3 +15,9 @@ APIs we are aiming to connect to/Features we are planning to add:
 - Milestone 2: Twitter, Facebook
 - Milestone 3: LinkedIn, Instagram
 - Milestone 4: Generic Files (pdf, doc, jpeg)
+
+
+api collection:
+https://python-twitter.readthedocs.io/en/latest/twitter.html#module-twitter.api
+
+
