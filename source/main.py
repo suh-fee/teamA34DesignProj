@@ -5,6 +5,7 @@ This file contains all non-auth routes for Flare
 from flask import Blueprint, render_template
 from flask_login import login_required, current_user
 from __init__ import db, create_app
+from models import User
 
 main = Blueprint('main', __name__)
 
@@ -17,7 +18,13 @@ def index():
 @main.route('/profile')
 @login_required
 def profile():
-    return render_template('profile.html', name=current_user.name)
+    #TODO: Create SNS Table in DB and template this
+    #TODO: Allow users to add their own SNS
+    links = [
+        {'site': 'Twitter', 'url': 'https://twitter.com/nyuniversity'},
+        {'site': 'Instagram', 'url': 'https://twitter.com/nyuniversity'}
+    ]
+    return render_template('profile.html', user=current_user, links=links)
 
 
 app = create_app()

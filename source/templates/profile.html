@@ -1,7 +1,13 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1 class="title">
-  Welcome, {{ name }}!
-</h1>
+    <tr valign="middle">
+            <td><h1 class="title">{{ user.name }}'s Profile</h1></td>
+            <td><img src="{{ user.avatar(128) }}"></td>
+    </tr>
+    <hr>
+    <h2>Connected Accounts</h2>
+    {% for link in links %}
+        <button class="button is-link is-fullwidth"><a href="{{ link.url }}"> {{ link.site }}</a></button>
+    {% endfor %}
 {% endblock %}
