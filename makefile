@@ -1,6 +1,6 @@
 LINTER = flake8
 SRC_DIR = source
-REQ_DIR = requirements
+REQ_DIR = .
 
 FORCE:
 
@@ -22,4 +22,4 @@ dev_env: FORCE
 	pip install -r $(REQ_DIR)/requirements-dev.txt
 
 docs: FORCE
-	cd source; make docs
+	cd $(SRC_DIR); make docs
