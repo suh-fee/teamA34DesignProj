@@ -1,5 +1,5 @@
 """
-This file contains all auth routes for Flare
+This is the file containining all of the auth routes for Flare app.
 """
 
 from flask import Blueprint, render_template, redirect, url_for, request, flash
@@ -13,11 +13,20 @@ auth = Blueprint('auth', __name__)
 
 @auth.route('/signup')
 def signup():
+    """
+    The purpose of this function is to render a page that allows the user to
+    sign up on the site.
+    """
     return render_template('signup.html')
 
 
 @auth.route('/signup', methods=['POST'])
 def signup_post():
+    """
+    The purpose of this function is to obtain the information the user submits
+    on the signup page. This information is sent through an HTML POST request
+    and is captured and added to the user database.
+    """
     email = request.form.get('email')
     name = request.form.get('name')
     password = request.form.get('password')
@@ -47,11 +56,20 @@ def signup_post():
 
 @auth.route('/login')
 def login():
+    """
+    The purpose of this function is to render a page that allows the user to
+    log in to the site.
+    """
     return render_template('login.html')
 
 
 @auth.route('/login', methods=['POST'])
 def login_post():
+    """
+    The purpose of this function is to obtain the information the user submits
+    on the login page. This information is sent through an HTML POST request
+    and is captured and verified to allow the user to log in.
+    """
     email = request.form.get('email')
     password = request.form.get('password')
     remember = True if request.form.get('remember') else False
@@ -73,6 +91,10 @@ def login_post():
 @auth.route('/logout')
 @login_required
 def logout():
+    """
+    The purpose of this function is to log out the user and redirect them to
+    tha main page.
+    """
     logout_user()
     return redirect(url_for('main.index'))
 
@@ -80,5 +102,9 @@ def logout():
 @auth.route('/settings')
 @login_required
 def settings():
-    # TODO: create a settings html
+    """
+    The purpose of this function is to render a page that allows the user to
+    modify their profile settings.
+    """
+    # TODO: Update settings.html to add functionality
     return render_template('settings.html')
