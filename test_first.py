@@ -1,5 +1,5 @@
 import pytest
-from source import *
+import source
 from source import main
 
 
