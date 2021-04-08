@@ -1,8 +1,8 @@
 import pytest
-import source
+from source import main
 
 def bob():
-    source.main.index()
+    main.index()
     print("Index!")
 
 def test_func():
