@@ -5,7 +5,7 @@ databases.
 
 from flask_login import UserMixin
 from hashlib import md5
-from source.__init__ import db
+from __init__ import db
 
 
 class User(db.Model, UserMixin):

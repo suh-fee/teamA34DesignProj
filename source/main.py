@@ -4,8 +4,8 @@ This is the file containining all of the non-auth routes for Flare app.
 
 from flask import Blueprint, render_template, redirect, url_for, request
 from flask_login import login_required, current_user
-from source.__init__ import db, create_app
-from source.models import User, Site
+from __init__ import db, create_app
+from models import User, Site
 
 main = Blueprint('main', __name__)
 
