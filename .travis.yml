@@ -3,8 +3,6 @@ language: python
 install:
   - pip install -r requirements.txt
 
-test:
-  - python3 source/main.py
 
 script:
-  - python3 source/main.py
+  - pytest
