@@ -7,8 +7,11 @@ from flask_login import login_required, current_user
 from __init__ import db, create_app
 from models import User, Site
 
+import tweepy
+
 main = Blueprint('main', __name__)
 
+testaccounts = ["@nimcanttweet", "@twitter"]
 
 @main.route('/')
 def index():
@@ -65,6 +68,35 @@ def add_site_post():
     db.session.commit()
 
     return redirect(url_for('main.profile'))
+
+
+@main.route('/profile', methods=['POST'])
+@login_required
+def follow_test():
+    consumer_key = "OdgalfvMIxmDamj1S9TV6NbC0"
+
+    consumer_secret = "0rS6CK5wg80USvR6X5PYQZHO3kdDDR0YP2PqYf8a7Nnz5JXaHH"
+
+    access_token = "1269868735801602048-0iYCm7fzqpJfqAG8IMS5Yk1wBhiEzH"
+    access_token_secret = "NvNBEM4nRwFEr2kwSNvtXVC87T7XDU1AEZmC5sCP4c7Vr"
+
+    auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
+    auth.set_access_token(access_token, access_token_secret)
+
+    api = tweepy.API(auth)
+
+    test = Site.query.all()
+
+    for i in test:
+        try:
+            api.create_friendship(i)
+        except:
+            print("couldn't follow account //")
+
+    return render_template('profile.html', user=current_user,
+                           sns=current_user.sns)
+
+
 
 
 app = create_app()
