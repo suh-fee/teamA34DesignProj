@@ -32,7 +32,7 @@ def profile():
     # user's profile
     links = [
         {'site': 'Twitter', 'url': 'https://twitter.com/nyuniversity'},
-        {'site': 'Instagram', 'url': 'https://twitter.com/nyuniversity'}
+        {'site': 'Instagram', 'url': 'https://www.instagram.com/nyuniversity'}
     ]
     return render_template('profile.html', user=current_user, links=links)
 
