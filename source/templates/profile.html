@@ -7,7 +7,17 @@
     </tr>
     <hr>
     <h2>Connected Accounts</h2>
-    {% for link in links %}
-        <button class="button is-link is-fullwidth"><a href="{{ link.url }}"> {{ link.site }}</a></button>
-    {% endfor %}
+    {% if sns %}
+        {% for site in sns %}
+            {% if site.site != None %}
+            <button class="button is-link is-fullwidth"><a
+                    href={{ site.link }}> {{ site.site }}: {{ site.handle }}
+            </a></button>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+    <form method="GET" action="/add_site">
+        <button class="button is-block is-info is-fullwidth">Connect A
+            New Account</button>
+    </form>
 {% endblock %}
