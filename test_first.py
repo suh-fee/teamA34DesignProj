@@ -1,8 +1,5 @@
 import pytest
+import source.models, source.__init__, source.main
 
-def f():
-    raise SystemExit(1)
-
-def test_func():
-    with pytest.raises(SystemExit):
-        f()
+def bob():
+    source.main.index()
