@@ -1,5 +1,5 @@
 import pytest
-import source.models, source.__init__, source.main
+import source
 
 def bob():
     source.main.index()
