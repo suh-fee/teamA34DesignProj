@@ -1,5 +1,7 @@
 import pytest
+from source import *
 from source import main
+
 
 def bob():
     main.index()
