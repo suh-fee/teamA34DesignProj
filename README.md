@@ -10,6 +10,11 @@ Users may also add files for viewing to their Flare account, such as images or P
 
 User can also add unique website links to their Flare account, allowing easy portfolio sharing alongside allowing users to add any profiles not officially supported by Flare yet.
 
+We've been testing our code as follows:
+`pip install -r requirements.txt`
+`$ python main.py`
+and navigate to `localhost:5000` to view the site.
+
 `make prod`
 `make tests`
 `make dev_env`
