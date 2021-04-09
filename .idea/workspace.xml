@@ -220,22 +220,23 @@
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state x="556" y="335" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1680.1050@0.0.1680.1050" timestamp="1617943364060" />
-    <state x="422" y="127" key="CommitChangelistDialog2" timestamp="1617945706914">
+    <state x="422" y="127" key="CommitChangelistDialog2" timestamp="1617946036601">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state x="422" y="127" key="CommitChangelistDialog2/0.0.1680.1050@0.0.1680.1050" timestamp="1617945706914" />
-    <state x="168" y="94" key="DiffContextDialog" timestamp="1617945360811">
-      <screen x="0" y="0" width="1680" height="1050" />
+    <state x="422" y="127" key="CommitChangelistDialog2/0.0.1680.1050@0.0.1680.1050" timestamp="1617946036601" />
+    <state x="168" y="94" width="1344" height="840" key="DiffContextDialog" timestamp="1617946069867">
+      <screen x="0" y="23" width="1680" height="961" />
     </state>
     <state x="168" y="94" key="DiffContextDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1617945360811" />
+    <state x="168" y="94" width="1344" height="840" key="DiffContextDialog/0.23.1680.961@0.23.1680.961" timestamp="1617946069867" />
     <state x="690" y="448" key="VCS.ChangelistChooser" timestamp="1617945393652">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state x="690" y="448" key="VCS.ChangelistChooser/0.0.1680.1050@0.0.1680.1050" timestamp="1617945393652" />
-    <state x="440" y="265" key="Vcs.Push.Dialog.v2" timestamp="1617945755972">
+    <state x="440" y="265" key="Vcs.Push.Dialog.v2" timestamp="1617946059404">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state x="440" y="265" key="Vcs.Push.Dialog.v2/0.0.1680.1050@0.0.1680.1050" timestamp="1617945755972" />
+    <state x="440" y="265" key="Vcs.Push.Dialog.v2/0.0.1680.1050@0.0.1680.1050" timestamp="1617946059404" />
   </component>
   <component name="masterDetails">
     <states>
