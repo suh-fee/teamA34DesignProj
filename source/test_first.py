@@ -1,27 +1,16 @@
-import os
-import tempfile
-
 import pytest
+import requests
+import json
+@pytest.mark.parametrize("userid, firstname",[(1,"George"),(2,"Janet")])
+def test_list_valid_user(supply_url,userid,firstname):
+	url = supply_url + "/users/" + str(userid)
+	resp = requests.get(url)
+	j = json.loads(resp.text)
+	assert resp.status_code == 200, resp.text
+	assert j['data']['id'] == userid, resp.text
+	assert j['data']['first_name'] == firstname, resp.text
 
-from flaskr import flaskr
-
-
-@pytest.fixture
-def client():
-    db_fd, flaskr.app.config['DATABASE'] = tempfile.mkstemp()
-    flaskr.app.config['TESTING'] = True
-
-    with flaskr.app.test_client() as client:
-        with flaskr.app.app_context():
-            flaskr.init_db()
-        yield client
-
-    os.close(db_fd)
-    os.unlink(flaskr.app.config['DATABASE'])
-
-def test_empty_db(client):
-    """Start with a blank database."""
-
-    rv = client.get('/')
-    print("got here!")
-    assert b'No entries here so far' in rv.data
+def test_list_invaliduser(supply_url):
+	url = supply_url + "/users/50"
+	resp = requests.get(url)
+	assert resp.status_code == 404, resp.text
