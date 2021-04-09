@@ -10,6 +10,11 @@ Users may also add files for viewing to their Flare account, such as images or P
 
 User can also add unique website links to their Flare account, allowing easy portfolio sharing alongside allowing users to add any profiles not officially supported by Flare yet.
 
+'make prod'
+'make tests'
+'make dev_env'
+'make docs'
+
 **TEAM:** Ailyn Tyagi, Maria Mancz, Nassir Ali, Safi Hasani
 
 APIs we are aiming to connect to/Features we are planning to add:
