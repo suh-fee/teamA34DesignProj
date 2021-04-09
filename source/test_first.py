@@ -1,6 +1,4 @@
 import pytest
-import source
-from source import main
 
 def test_empty_db(client):
     """Start with a blank database."""
