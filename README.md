@@ -47,4 +47,5 @@ Features we intend on including:
 api collection:
 https://python-twitter.readthedocs.io/en/latest/twitter.html#module-twitter.api
 
+*Note: Documents from last semester are not present since the idea changed this semester.
 
