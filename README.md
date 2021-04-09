@@ -1,4 +1,5 @@
-# Flare
+Flare
+=====
 
 ## Project Description
 
@@ -10,10 +11,19 @@ Users may also add files for viewing to their Flare account, such as images or P
 
 User can also add unique website links to their Flare account, allowing easy portfolio sharing alongside allowing users to add any profiles not officially supported by Flare yet.
 
-We've been testing our code as follows:
-`pip install -r requirements.txt`
-`$ python main.py`
-and navigate to `localhost:5000` to view the site.
+## Instructions:
+Install the directories required to run the site
+
+    $ pip install -r requirements.txt
+Run the site
+
+    $ python main.py
+    
+On any web browser, navigate to `localhost:5000` to view the site.
+
+To view the test output, navigate to `https://www.travis-ci.org`
++ On the left hand side you should see this repo
++ Clicking on it will show the Travis information 
 
 `make prod`
 `make tests`
@@ -22,12 +32,17 @@ and navigate to `localhost:5000` to view the site.
 
 **TEAM:** Ailyn Tyagi, Maria Mancz, Nassir Ali, Safi Hasani
 
-APIs we are aiming to connect to/Features we are planning to add:
+APIs/File Types that we are aiming to add:
 - Milestone 1: Generic URLs
 - Milestone 2: Twitter, Facebook
 - Milestone 3: LinkedIn, Instagram
 - Milestone 4: Generic Files (pdf, doc, jpeg)
 
+Features we intend on including:
+- Create/Delete account
+- Add/Delete social media accounts/links
+- Add/Delete files
+- Follow social media account(s) from within Flare
 
 api collection:
 https://python-twitter.readthedocs.io/en/latest/twitter.html#module-twitter.api
