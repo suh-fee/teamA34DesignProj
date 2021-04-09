@@ -1,7 +1,12 @@
 import pytest
-
-from source import create_app, models, auth, __init__
+from flask import Flask
+from flask_sqlalchemy import SQLAlchemy
+from flask_login import LoginManager
 
 def test_file1_method3():
-    app = create_app()
-    print(app)
+    # example test case
+	x = 4
+	y = 5
+	assert x < y
+	print("Test 1 Passed!")
+
