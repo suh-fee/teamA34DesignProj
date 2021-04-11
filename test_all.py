@@ -3,9 +3,8 @@ import tempfile
 
 import pytest
 
-import source
+from source import *
 import source.__init__ as sinit
-from source import models
 
 
 @pytest.fixture
