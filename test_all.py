@@ -3,7 +3,7 @@ import tempfile
 
 import pytest
 
-from source import *
+from source import __init__, models
 import source.__init__ as sinit
 
 
