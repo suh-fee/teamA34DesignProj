@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9e2f6375-1a54-46a6-9a2f-28140595d776" name="Default" comment="Imported the rest of source">
+    <list default="true" id="9e2f6375-1a54-46a6-9a2f-28140595d776" name="Default" comment="Changed imports">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test_all.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_all.py" afterDir="false" />
     </list>
@@ -208,7 +208,14 @@
       <option name="project" value="LOCAL" />
       <updated>1618178007591</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Changed imports">
+      <created>1618178149512</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1618178149512</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -233,17 +240,18 @@
     <MESSAGE value="The test broke" />
     <MESSAGE value="Imported models" />
     <MESSAGE value="Imported the rest of source" />
-    <option name="LAST_COMMIT_MESSAGE" value="Imported the rest of source" />
+    <MESSAGE value="Changed imports" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changed imports" />
   </component>
   <component name="WindowStateProjectService">
     <state x="556" y="335" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1617943364060">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state x="556" y="335" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1680.1050@0.0.1680.1050" timestamp="1617943364060" />
-    <state x="422" y="127" key="CommitChangelistDialog2" timestamp="1618178007433">
+    <state x="422" y="127" key="CommitChangelistDialog2" timestamp="1618178149345">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state x="422" y="127" key="CommitChangelistDialog2/0.0.1680.1050@0.0.1680.1050" timestamp="1618178007433" />
+    <state x="422" y="127" key="CommitChangelistDialog2/0.0.1680.1050@0.0.1680.1050" timestamp="1618178149345" />
     <state x="168" y="94" width="1344" height="840" key="DiffContextDialog" timestamp="1617946069867">
       <screen x="0" y="23" width="1680" height="961" />
     </state>
@@ -253,10 +261,10 @@
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state x="690" y="448" key="VCS.ChangelistChooser/0.0.1680.1050@0.0.1680.1050" timestamp="1617945393652" />
-    <state x="440" y="265" key="Vcs.Push.Dialog.v2" timestamp="1618178014993">
+    <state x="440" y="265" key="Vcs.Push.Dialog.v2" timestamp="1618178156272">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state x="440" y="265" key="Vcs.Push.Dialog.v2/0.0.1680.1050@0.0.1680.1050" timestamp="1618178014993" />
+    <state x="440" y="265" key="Vcs.Push.Dialog.v2/0.0.1680.1050@0.0.1680.1050" timestamp="1618178156272" />
   </component>
   <component name="masterDetails">
     <states>
