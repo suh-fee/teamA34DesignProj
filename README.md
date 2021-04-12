@@ -12,9 +12,9 @@ Users may also add files for viewing to their Flare account, such as images or P
 User can also add unique website links to their Flare account, allowing easy portfolio sharing alongside allowing users to add any profiles not officially supported by Flare yet.
 
 ## Instructions:
-Install the directories required to run the site
+Install the libraries required to run the site
 
-    $ pip install -r requirements.txt
+    $ make dev_env
 Run the site
 
     $ python main.py
