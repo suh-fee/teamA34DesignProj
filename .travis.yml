@@ -3,5 +3,9 @@ language: python
 install:
   - pip install -r requirements.txt
 
+env:
+  global:
+    - PYTHONPATH=$(pwd)
+
 script:
   - pytest
