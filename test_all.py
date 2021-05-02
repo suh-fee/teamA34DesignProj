@@ -4,7 +4,8 @@ import tempfile
 import pytest
 
 import source.__init__ as sinit
-from source import __init__, models
+from source import models
+
 
 
 @pytest.fixture
@@ -21,9 +22,20 @@ def client():
     os.close(db_fd)
     os.unlink(app.config['DATABASE'])
 
-def test_empty_db(client):
+def test_getting_homepage(client):
     """Start with a blank database."""
-
     rv = client.get('/')
     assert rv.data != None
+
+def test_getting_login(client):
+    """Start with a blank database."""
+    rv = client.get('/profile')
+    assert rv.data != None
+
+def test_getting_add_site(client):
+    """Start with a blank database."""
+    rv = client.get('/add_site')
+    assert rv.data != None
+
+
 
