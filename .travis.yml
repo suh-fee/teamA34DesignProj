@@ -8,4 +8,4 @@ env:
     - PYTHONPATH=$(pwd):$PYTHONPATH
 
 script:
-  - pytest --cov=teamA34DesignProj2 test_all.py
+  - pytest --cov=teamA34DesignProj test_all.py
