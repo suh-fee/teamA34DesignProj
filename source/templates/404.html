@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
+
+    {% extends "base.html" %}
+    {% block content %}
+    <h2 class="title"><b>404</b> Error.</h2>
+    <p>The requested page does not exist.</p>
+    <h2 class="subtitle"><a href="{{ url_for('main.index') }}">Click Here To Return To The Main Page</a></h2>
+    {% endblock %}
 </html>
