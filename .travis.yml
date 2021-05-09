@@ -4,9 +4,9 @@ install:
   - pip install -r requirements.txt
 
 env:
-  - CODECOV_TOKEN=17ea0d7e-6284-4834-8b03-506408fdd9d0
   global:
     - PYTHONPATH=$(pwd):$PYTHONPATH
+    - CODECOV_TOKEN=17ea0d7e-6284-4834-8b03-506408fdd9d0
 
 
 script:
