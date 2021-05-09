@@ -8,5 +8,5 @@ env:
     - PYTHONPATH=$(pwd):$PYTHONPATH
 
 script:
-    - pytest --cov=teamA34DesignProj test_all.py
+    - pytest --cov-report term --cov=teamA34DesignProj test_all.py
 
