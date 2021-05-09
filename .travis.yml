@@ -9,7 +9,7 @@ env:
   - CODECOV_TOKEN=<token>
 
 script:
-    - py.test  --cov-report term --cov=test_all.py
+    - py.test --cov-report term --cov=test_all.py
 
 after_success:
     - codecov
