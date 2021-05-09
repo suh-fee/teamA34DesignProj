@@ -10,7 +10,7 @@ env:
 
 
 script:
-    - py.test --cov-report term test_all.py
+    - pytest --cov-report term --cov=teamA34DesignProj test_all.py
 
 after_success:
     - codecov
