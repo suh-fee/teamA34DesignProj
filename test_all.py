@@ -4,7 +4,6 @@ import tempfile
 import pytest
 
 import source.__init__ as sinit
-from source import models
 
 
 
@@ -23,19 +22,14 @@ def client():
     os.unlink(app.config['DATABASE'])
 
 def test_getting_homepage(client):
-    """Start with a blank database."""
     rv = client.get('/')
-    assert rv.data != None
+    assert b'Welcome to Flare!' in rv.data
+    assert b'A site to link all your Social Media accounts.' in rv.data
 
 def test_getting_login(client):
-    """Start with a blank database."""
-    rv = client.get('/profile')
-    assert rv.data != None
+    rv = client.get('/login')
+    assert b'Login' in rv.data
 
-def test_getting_add_site(client):
-    """Start with a blank database."""
-    rv = client.get('/add_site')
-    assert rv.data != None
-
-
-
+def test_getting_signup(client):
+    rv = client.get('/signup')
+    assert b'Sign Up' in rv.data
