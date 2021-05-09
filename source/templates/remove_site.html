@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{% extends "base.html" %}
+
+{% block content %}
+<body>
+<h1>Unlink A Social Networking Site From Your Account</h1>
+    <div class="dropdown is-hoverable">
+      <div class="dropdown-trigger">
+        <button class="button" aria-haspopup="true" aria-controls="dropdown-menu">
+          <span>Select A Site to Unlink</span>
+          <span class="icon is-small">
+            <i class="fas fa-angle-down" aria-hidden="true"></i>
+          </span>
+        </button>
+      </div>
+      <div class="dropdown-menu" id="dropdown-menu" role="menu">
+        <div class="dropdown-content">
+            {% if sns %}
+                {% for site in sns %}
+                    {% if (site.site != None) and (site.handle !=
+            None) %}
+                    <form method="POST" action="/remove_site">
+                        <input type="hidden" name="snsuser" value= {{ site.handle }} />
+                        <button type="submit" name="button">{{ site
+                            .handle }}</button>
+                    </form>
+                    {% endif %}
+                {% endfor %}
+            {% else %}
+                <a href="#" class="dropdown-item">
+                    No Linked Accounts
+                </a>
+            {% endif %}
+        </div>
+      </div>
+    </div>
+</body>
+{% endblock %}
+</html>
