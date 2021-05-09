@@ -2,7 +2,7 @@
 This is the file containining all of the non-auth routes for Flare app.
 """
 
-from flask import Blueprint, render_template, redirect, url_for, request, abort
+from flask import Blueprint, render_template, redirect, url_for, request, abort, session
 from flask_login import login_required, current_user
 from source.__init__ import db, create_app
 from source.models import User, Site
@@ -14,7 +14,6 @@ main = Blueprint('main', __name__)
 testaccounts = ["@nimcanttweet", "@twitter"]
 
 app = create_app()
-
 
 @main.route('/')
 def index():
@@ -38,10 +37,12 @@ def profile():
     # user's profile
 
     return render_template('profile.html', user=current_user,
-                           sns=current_user.sns)
+                           sns=current_user.sns, handle=None, success=None)
 
 
-@main.route('/add_site')
+
+
+@main.route('/add_site', methods=['GET'])
 @login_required
 def add_site():
     """
@@ -142,34 +143,56 @@ def show_user(username=None):
     if username:
         template = 'profile.html'
 
-    return render_template(template, user=user, sns=user.sns)
+    return render_template(template, user=user, sns=user.sns, success=None, handle=None)
 
+#Globals needed for twitter following: TODO find way to hide secret and key
+callback_url = 'http://localhost:5000/follow_twitter2'
+consumer_key = "OdgalfvMIxmDamj1S9TV6NbC0"
+consumer_secret = "0rS6CK5wg80USvR6X5PYQZHO3kdDDR0YP2PqYf8a7Nnz5JXaHH"
 
-@main.route('/profile', methods=['POST'])
+@main.route('/follow_twitter', methods=['GET', 'POST'])
 @login_required
 def follow_test():
-    consumer_key = "OdgalfvMIxmDamj1S9TV6NbC0"
+    session['handle'] = request.form.get('twituser')
+    print("TRYING", request.form.get('twituser'))
 
-    consumer_secret = "0rS6CK5wg80USvR6X5PYQZHO3kdDDR0YP2PqYf8a7Nnz5JXaHH"
+    auth = tweepy.OAuthHandler(consumer_key, consumer_secret, callback_url)
 
-    access_token = "1269868735801602048-0iYCm7fzqpJfqAG8IMS5Yk1wBhiEzH"
-    access_token_secret = "NvNBEM4nRwFEr2kwSNvtXVC87T7XDU1AEZmC5sCP4c7Vr"
+    redirect_url = auth.get_authorization_url()
 
-    auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
-    auth.set_access_token(access_token, access_token_secret)
+    session['request_token'] = auth.request_token
 
+
+
+    return redirect(redirect_url)
+
+@main.route('/follow_twitter2')
+@login_required
+def follow_twitter():
+    success = None
+    handle = None
+    request_token = session['request_token']
+    del session['request_token']
+    auth = tweepy.OAuthHandler(consumer_key, consumer_secret, callback_url)
+    auth.request_token = request_token
+    verifier = request.args.get('oauth_verifier')
+    auth.get_access_token(verifier)
+    auth.set_access_token(auth.access_token, auth.access_token_secret)
     api = tweepy.API(auth)
 
-    test = Site.query.all()
+    try:
+        api.create_friendship(session['handle'])
+        success = "Followed account!"
+        handle = session['handle']
+        success = True
+    except:
+        print("Could not follow account:")
+        print(session['handle'])
 
-    for i in test:
-        try:
-            api.create_friendship(i)
-        except:
-            print("Couldn't follow account. //")
 
-    return render_template('profile.html', user=current_user,
-                           sns=current_user.sns)
+    return redirect(url_for('main.profile'))
+
+
 
 
 @main.errorhandler(404)

@@ -9,12 +9,24 @@
     <h2 class="subtitle">Linked Accounts</h2>
     {% if sns %}
         {% for site in sns %}
+
             {% if (site.site != None) and (site.handle != None) %}
             <button class="button is-link is-fullwidth"><a
                     href={{ site.link }}> {{ site.site }}: {{ site.handle }}
             </a></button>
+                {% if (site.site == 'twitter') %}
+                    <form action="/follow_twitter" class = "inline" method="post">
+                        <input type="hidden" id="twituser" name="twituser" value={{ site.handle }}>
+                        <button> Follow the above twitter account! (If it exists) </button>
+                    </form>
+                {% endif %}
             {% endif %}
         {% endfor %}
     {% endif %}
+
+    {% if handle != None %}
+        Successfully followed the account {{ handle }}
+    {% endif %}
+
 
 {% endblock %}
