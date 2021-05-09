@@ -6,6 +6,12 @@ install:
 env:
   global:
     - PYTHONPATH=$(pwd):$PYTHONPATH
+    - CODECOV_TOKEN=17ea0d7e-6284-4834-8b03-506408fdd9d0
+
 
 script:
-  - pytest
+    - python3 -m pytest --cov=. test_all.py
+
+after_success:
+    - codecov
+

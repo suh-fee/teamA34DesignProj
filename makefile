@@ -19,7 +19,7 @@ lint: FORCE
 	$(LINTER) $(SRC_DIR)/*.py
 
 dev_env: FORCE
-	pip install -r $(REQ_DIR)/requirements.txt
+	pip3 install -r $(REQ_DIR)/requirements.txt
 
 docs: FORCE
 	cd $(SRC_DIR); make docs
