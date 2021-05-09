@@ -16,7 +16,7 @@ class User(db.Model, UserMixin):
     __tablename__ = 'users'
     id = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String(100), unique=True)
-    name = db.Column(db.String(1000))
+    name = db.Column(db.String(1000), unique=True)
     password = db.Column(db.String(100))
     sns = db.relationship('Site', backref='users') #db.backref('users',uselist=False))
 

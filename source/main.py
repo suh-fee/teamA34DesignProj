@@ -2,7 +2,7 @@
 This is the file containining all of the non-auth routes for Flare app.
 """
 
-from flask import Blueprint, render_template, redirect, url_for, request
+from flask import Blueprint, render_template, redirect, url_for, request, abort
 from flask_login import login_required, current_user
 from source.__init__ import db, create_app
 from source.models import User, Site
@@ -12,6 +12,8 @@ import tweepy
 main = Blueprint('main', __name__)
 
 testaccounts = ["@nimcanttweet", "@twitter"]
+
+app = create_app()
 
 
 @main.route('/')
@@ -102,6 +104,21 @@ def remove_site_post():
     return redirect(url_for('main.profile'))
 
 
+@main.route('/user/<username>')
+def show_user(username):
+    # show the user profile for the user
+    if username and (current_user.is_anonymous or username != current_user.name):
+        user = User.query.filter_by(name=username).first()
+        if user is None:
+            abort(404)
+    else:
+        user = current_user
+    if username:
+        template = 'profile.html'
+
+    return render_template(template, user=user, sns=user.sns)
+
+
 @main.route('/profile', methods=['POST'])
 @login_required
 def follow_test():
@@ -129,7 +146,10 @@ def follow_test():
                            sns=current_user.sns)
 
 
-app = create_app()
+@main.errorhandler(404)
+def not_found(error):
+    return render_template('404.html'), 404
+
 
 if __name__ == '__main__':
     db.create_all(app=create_app())  # create the SQLite database
