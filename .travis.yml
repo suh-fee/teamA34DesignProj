@@ -9,3 +9,6 @@ env:
 
 script:
   - pytest --cov=teamA34DesignProj
+
+after_success:
+  - codcov
