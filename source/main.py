@@ -134,7 +134,7 @@ def show_user(username=None):
         it returns a 404 error.
     """
     if username and (current_user.is_anonymous or username != current_user.name):
-        user = current_user.query.filter_by(name=username).first()
+        user = User.query.filter_by(name=username).first()
         if user is None:
             abort(404)
     else:
