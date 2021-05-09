@@ -4,8 +4,8 @@ This is the file containining all of the non-auth routes for Flare app.
 
 from flask import Blueprint, render_template, redirect, url_for, request, abort
 from flask_login import login_required, current_user
-from source.__init__ import db, create_app
-from source.models import User, Site
+from __init__ import db, create_app
+from models import Site
 
 import tweepy
 
@@ -134,7 +134,7 @@ def show_user(username=None):
         it returns a 404 error.
     """
     if username and (current_user.is_anonymous or username != current_user.name):
-        user = User.query.filter_by(name=username).first()
+        user = current_user.query.filter_by(name=username).first()
         if user is None:
             abort(404)
     else:
@@ -165,7 +165,7 @@ def follow_test():
     for i in test:
         try:
             api.create_friendship(i)
-        except:
+        except Exception:
             print("Couldn't follow account. //")
 
     return render_template('profile.html', user=current_user,
