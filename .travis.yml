@@ -4,9 +4,14 @@ install:
   - pip install -r requirements.txt
 
 env:
+  - CODECOV_TOKEN=17ea0d7e-6284-4834-8b03-506408fdd9d0
   global:
     - PYTHONPATH=$(pwd):$PYTHONPATH
 
+
 script:
-    - pytest --cov-report term --cov=teamA34DesignProj test_all.py
+    - py.test --cov-report term --cov=test_all.py
+
+after_success:
+    - codecov
 
