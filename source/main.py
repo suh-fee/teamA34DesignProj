@@ -104,8 +104,29 @@ def remove_site_post():
     return redirect(url_for('main.profile'))
 
 
+@main.route('/search')
+def search():
+    """
+    The purpose of this function is to render the site that allows users to
+    search for other users' profiles.
+    """
+    return render_template('search.html')
+
+
+@main.route('/search', methods=['POST'])
+def search_post():
+    """
+    The purpose of this function is to obtain the username a user wants to
+    search for. This information is sent through an HTML POST request and
+    is captured and redirected to the show_user function.
+    """
+    username = request.form.get('username')
+
+    return redirect(url_for('main.show_user', username=username))
+
+
 @main.route('/user/<username>')
-def show_user(username):
+def show_user(username=None):
     """
         The purpose of this function is to allow non-registered and registered
         users to view another user's profile. It searches for the <username>
