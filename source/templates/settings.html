@@ -2,6 +2,15 @@
 
 {% block content %}
 <h1 class="title">
-  Will add settings in the future
+  Settings
+
+  <form method="GET" action="/add_site">
+      <button class="button is-block is-info is-fullwidth">Link A
+          New Account</button>
+  </form>
+  <form method="GET" action="/remove_site">
+      <button class="button is-block is-info is-fullwidth">Unlink An
+          Account</button>
+  </form>
 </h1>
 {% endblock %}
