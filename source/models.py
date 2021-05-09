@@ -31,6 +31,11 @@ class User(db.Model, UserMixin):
 
 
 class Site(db.Model):
+    """
+    The purpose of this class is to create the fields for the Site database,
+    including all of the information that is captured when a user links a new
+    site to their account.
+    """
     __tablename__ = 'social_sites'
     id = db.Column(db.Integer, primary_key=True)
     site = db.Column(db.String(1000))

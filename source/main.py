@@ -106,7 +106,12 @@ def remove_site_post():
 
 @main.route('/user/<username>')
 def show_user(username):
-    # show the user profile for the user
+    """
+        The purpose of this function is to allow non-registered and registered
+        users to view another user's profile. It searches for the <username>
+        in the database and renders the profile. If the usernae does not exist,
+        it returns a 404 error.
+    """
     if username and (current_user.is_anonymous or username != current_user.name):
         user = User.query.filter_by(name=username).first()
         if user is None:
