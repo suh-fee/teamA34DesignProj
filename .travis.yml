@@ -6,9 +6,10 @@ install:
 env:
   global:
     - PYTHONPATH=$(pwd):$PYTHONPATH
+  - CODECOV_TOKEN=<token>
 
 script:
-  - coverage run test_all.py
+    - py.test  --cov-report term --cov=test_all.py
 
 after_success:
-  - codecov
+    - codecov
