@@ -6,7 +6,7 @@
             <td><img src="{{ user.avatar(128) }}"></td>
     </tr>
     <hr>
-    <h2>Linked Accounts</h2>
+    <h2 class="subtitle">Linked Accounts</h2>
     {% if sns %}
         {% for site in sns %}
             {% if (site.site != None) and (site.handle != None) %}

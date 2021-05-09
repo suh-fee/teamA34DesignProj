@@ -4,13 +4,14 @@
 <h1 class="title">
   Settings
 
-  <form method="GET" action="/add_site">
-      <button class="button is-block is-info is-fullwidth">Link A
-          New Account</button>
-  </form>
-  <form method="GET" action="/remove_site">
-      <button class="button is-block is-info is-fullwidth">Unlink An
-          Account</button>
-  </form>
+    <nav class="breadcrumb is-medium is-centered has-bullet-separator"
+         aria-label="breadcrumbs">
+        <ul>
+        <li><a href="{{ url_for('main.add_site') }}" class="navbar-item">
+           Link a New Account</a></li>
+        <li><a href="{{ url_for('main.remove_site') }}" class="navbar-item">
+           Unlink an Existing Account</a></li>
+        </ul>
+    </nav>
 </h1>
 {% endblock %}
