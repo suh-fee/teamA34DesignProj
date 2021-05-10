@@ -13,7 +13,7 @@ deploy:
       api_key: $HEROKU_API_KEY
       app: flare34
       on:
-          branch: master
+          branch: main
 
 script:
     - python3 -m pytest --cov=. test_all.py
