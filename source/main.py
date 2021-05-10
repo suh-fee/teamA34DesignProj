@@ -15,6 +15,7 @@ testaccounts = ["@nimcanttweet", "@twitter"]
 
 app = create_app()
 
+
 @main.route('/')
 def index():
     """
@@ -38,8 +39,6 @@ def profile():
 
     return render_template('profile.html', user=current_user,
                            sns=current_user.sns, handle=None, success=None)
-
-
 
 
 @main.route('/add_site', methods=['GET'])
@@ -145,10 +144,12 @@ def show_user(username=None):
 
     return render_template(template, user=user, sns=user.sns, success=None, handle=None)
 
-#Globals needed for twitter following: TODO find way to hide secret and key
+
+# Globals needed for twitter following: TODO find way to hide secret and key
 callback_url = 'http://localhost:5000/follow_twitter2'
 consumer_key = "OdgalfvMIxmDamj1S9TV6NbC0"
 consumer_secret = "0rS6CK5wg80USvR6X5PYQZHO3kdDDR0YP2PqYf8a7Nnz5JXaHH"
+
 
 @main.route('/follow_twitter', methods=['GET', 'POST'])
 @login_required
@@ -162,9 +163,8 @@ def follow_test():
 
     session['request_token'] = auth.request_token
 
-
-
     return redirect(redirect_url)
+
 
 @main.route('/follow_twitter2')
 @login_required
@@ -189,10 +189,7 @@ def follow_twitter():
         print("Could not follow account:")
         print(session['handle'])
 
-
     return redirect(url_for('main.profile'))
-
-
 
 
 @main.errorhandler(404)
