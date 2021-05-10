@@ -24,7 +24,11 @@ On any web browser, navigate to `localhost:5000` to view the site.
 To view the test output, navigate to `https://www.travis-ci.org`
 + On the left hand side you should see this repo
 + Clicking on it will show the Travis information 
-
++ At the bottom of the Travis output summary coverage information will be displayed
+    + To view detailed coverage information click the `$ codecov` line below
+    + Navigate to the `https://codecov.io/github/suh-fee/teamA34DesignProj/commit/...` link at the bottom of the block
+    + Click the files tab, and the file-by-file information will be there
+    
 `make prod`
 `make tests`
 `make dev_env`
