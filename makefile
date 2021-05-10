@@ -13,7 +13,7 @@ github: FORCE
 tests: lint unit
 
 unit: FORCE
-	python3 -m unittest source.db
+	python3 -m pytest --cov=. test_all.py
 
 lint: FORCE
 	$(LINTER) $(SRC_DIR)/*.py
