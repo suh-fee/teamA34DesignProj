@@ -1,11 +1,14 @@
 LINTER = flake8
+DOCFILES = $(shell ls *.py | sed 's/.py/.html/')
+DOC_DIR = ../docs/docstrings
 
 FORCE:
 
-docs: FORCE
-	pydoc3 -w source.main
-	pydoc3 -w source.auth
-	pydoc3 -w source.models
+docs: $(DOCFILES)
+
+%.html: %.py
+	pydoc3 -w ./$<
+	mv *.html $(DOC_DIR)
 
 tests: lint unit
 
