@@ -25,14 +25,20 @@ def signup_post():
     """
     The purpose of this function is to obtain the information the user submits
     on the signup page. This information is sent through an HTML POST request
-    and is captured and added to the user database.
+    and is captured and verified, if correct, it is added to the user database.
     """
     email = request.form.get('email')
     username = request.form.get('username')
-    password = request.form.get('password')
+    password1 = request.form.get('password1')
+    password2 = request.form.get('password2')
 
-    # Check if the query returns a User
-    # This means a user with this email already exists in the Database
+    # Check if both passwords match
+    if password1 != password2:
+        flash("The passwords don't match. Please try again")
+        return redirect(url_for('auth.signup'))
+
+    # Check if the email or username query returns a User
+    # This means a user with these credentials already exists in the Database
     user1 = User.query.filter_by(email=email).first()
     user2 = User.query.filter_by(name=username).first()
 
@@ -45,7 +51,7 @@ def signup_post():
     # Create a new user from the data provided
     # Password is hashed before saving
     new_user = User(email=email, name=username,
-                    password=generate_password_hash(password, method='sha256'))
+                    password=generate_password_hash(password1, method='sha256'))
 
     # Update the Database to include the new user
     db.session.add(new_user)
