@@ -53,6 +53,7 @@ def add_site_post():
     added using the Site model.
     """
     site = request.form.get('sns')
+    site = site.lower().strip()
     handle = request.form.get('snsuser')
     link = request.form.get('link')
 
