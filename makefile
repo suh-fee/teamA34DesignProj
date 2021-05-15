@@ -27,7 +27,6 @@ heroku:
 	heroku apps:create flake34
 	heroku git:remote -a flake34
 	heroku config:set PYTHONPATH="/app"
-	heroku config:set GAME_HOME="/app"
 	echo "web: gunicorn source.main:app" > Procfile
 
 docs: FORCE
