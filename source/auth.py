@@ -113,5 +113,4 @@ def settings():
     The purpose of this function is to render a page that allows the user to
     modify their profile settings.
     """
-    # TODO: Update settings.html to add functionality
     return render_template('settings.html')

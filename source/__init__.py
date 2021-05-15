@@ -25,6 +25,7 @@ def create_app():
     # Initialize the Database
     db.init_app(app)
 
+    # Set up login manager
     from source.models import manage_login
     manage_login(app)
 
