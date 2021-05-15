@@ -1,7 +1,7 @@
 Flare
 =====
 
-## Project Description
+## Project Description:
 
 A social-media sharing and combination app that allows professionals and businesses to share their profiles, resumes, and portfolios to others with a single link.
 
@@ -42,7 +42,7 @@ To view the test output, navigate to `https://www.travis-ci.org`
 
 
 ## Documentation:
-[Sequence Diagram] (https://github.com/suh-fee/teamA34DesignProj/blob/main/docs/Sequence%20Diagram%20-%20Flare.png)
+[Sequence Diagram](https://github.com/suh-fee/teamA34DesignProj/blob/main/docs/Sequence%20Diagram%20-%20Flare.png)
 
 *Note: Documents from last semester are not present since the idea changed this semester.
 
