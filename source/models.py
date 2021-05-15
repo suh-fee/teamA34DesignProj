@@ -3,7 +3,7 @@ This is the file containing all of the models that will be included in the
 databases.
 """
 
-from flask_login import UserMixin
+from flask_login import LoginManager, UserMixin
 from hashlib import md5
 from source.__init__ import db
 
@@ -42,4 +42,14 @@ class Site(db.Model):
     handle = db.Column(db.String(1000))
     link = db.Column(db.String(1000))
     user_id = db.Column(db.Integer(), db.ForeignKey('users.id'))
+
+
+def manage_login(app):
+    login_manager = LoginManager()
+    login_manager.login_view = "auth.login"
+    login_manager.init_app(app)
+
+    @login_manager.user_loader
+    def load_user(user_id):
+        return User.query.get(int(user_id))
 
