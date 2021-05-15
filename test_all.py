@@ -1,8 +1,6 @@
 import os
 import tempfile
-
 import pytest
-
 import source.__init__ as sinit
 
 
@@ -26,9 +24,9 @@ def client():
 
 def login(client):
     """
-    This function is used to login the dummy user that was created
-    in the test_post_sign_up function, so the internal pages that require
-    an account to view can be viewed.
+    This function is used to login the dummy user that was created in the
+    test_post_sign_up function, so the internal pages that require an account to
+    view can be viewed.
     """
     rv = client.post('/login', data=dict(
         email="test@test.com",
@@ -40,9 +38,8 @@ def login(client):
 
 def add_site(client):
     """
-    This function is used to add a dummy site,
-    so the internal pages that require a site added in the account
-    can be tested (like removing a site)
+    This function is used to add a dummy site, so the internal pages that
+    require a site added in the account can be tested (like removing a site).
     """
     rv = client.post('/add_site', data=dict(
         site="YouTube",
