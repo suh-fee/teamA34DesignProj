@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module main</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>main</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/Users/atyagi/Desktop/A34/teamA34DesignProj/source/main.py">/Users/atyagi/Desktop/A34/teamA34DesignProj/source/main.py</a></font></td></tr></table>
+    <p><tt>This&nbsp;is&nbsp;the&nbsp;file&nbsp;containining&nbsp;all&nbsp;of&nbsp;the&nbsp;non-auth&nbsp;routes&nbsp;for&nbsp;Flare&nbsp;app.</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="tweepy.html">tweepy</a><br>
+</td><td width="25%" valign=top></td><td width="25%" valign=top></td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-add_site"><strong>add_site</strong></a>()</dt><dd><tt>The&nbsp;purpose&nbsp;of&nbsp;this&nbsp;function&nbsp;is&nbsp;to&nbsp;render&nbsp;the&nbsp;site&nbsp;that&nbsp;allows&nbsp;users&nbsp;to&nbsp;add<br>
+a&nbsp;social&nbsp;networking&nbsp;site&nbsp;associated&nbsp;with&nbsp;their&nbsp;account.</tt></dd></dl>
+ <dl><dt><a name="-add_site_post"><strong>add_site_post</strong></a>()</dt><dd><tt>The&nbsp;purpose&nbsp;of&nbsp;this&nbsp;function&nbsp;is&nbsp;to&nbsp;obtain&nbsp;the&nbsp;information&nbsp;the&nbsp;user&nbsp;submits<br>
+when&nbsp;linking&nbsp;a&nbsp;new&nbsp;social&nbsp;networking&nbsp;site&nbsp;to&nbsp;their&nbsp;profile.&nbsp;This<br>
+information&nbsp;is&nbsp;sent&nbsp;through&nbsp;an&nbsp;HTML&nbsp;POST&nbsp;request&nbsp;and&nbsp;is&nbsp;captured&nbsp;and<br>
+added&nbsp;using&nbsp;the&nbsp;Site&nbsp;model.</tt></dd></dl>
+ <dl><dt><a name="-follow_test"><strong>follow_test</strong></a>()</dt></dl>
+ <dl><dt><a name="-follow_twitter"><strong>follow_twitter</strong></a>()</dt></dl>
+ <dl><dt><a name="-index"><strong>index</strong></a>()</dt><dd><tt>The&nbsp;purpose&nbsp;of&nbsp;this&nbsp;function&nbsp;is&nbsp;to&nbsp;render&nbsp;the&nbsp;main&nbsp;page&nbsp;of&nbsp;the&nbsp;site.</tt></dd></dl>
+ <dl><dt><a name="-not_found"><strong>not_found</strong></a>(error)</dt></dl>
+ <dl><dt><a name="-profile"><strong>profile</strong></a>()</dt><dd><tt>The&nbsp;purpose&nbsp;of&nbsp;this&nbsp;function&nbsp;is&nbsp;to&nbsp;render&nbsp;the&nbsp;profile&nbsp;page&nbsp;for&nbsp;each&nbsp;user.<br>
+It&nbsp;requires&nbsp;the&nbsp;user&nbsp;to&nbsp;be&nbsp;logged&nbsp;into&nbsp;their&nbsp;account&nbsp;before&nbsp;they&nbsp;can&nbsp;view<br>
+their&nbsp;own&nbsp;profile.</tt></dd></dl>
+ <dl><dt><a name="-remove_site"><strong>remove_site</strong></a>()</dt><dd><tt>The&nbsp;purpose&nbsp;of&nbsp;this&nbsp;function&nbsp;is&nbsp;to&nbsp;render&nbsp;the&nbsp;site&nbsp;that&nbsp;allows&nbsp;users&nbsp;to<br>
+remove&nbsp;social&nbsp;networking&nbsp;site&nbsp;associated&nbsp;with&nbsp;their&nbsp;account.</tt></dd></dl>
+ <dl><dt><a name="-remove_site_post"><strong>remove_site_post</strong></a>()</dt><dd><tt>The&nbsp;purpose&nbsp;of&nbsp;this&nbsp;function&nbsp;is&nbsp;to&nbsp;obtain&nbsp;the&nbsp;information&nbsp;the&nbsp;user&nbsp;submits<br>
+when&nbsp;removing&nbsp;new&nbsp;social&nbsp;networking&nbsp;site&nbsp;to&nbsp;their&nbsp;profile.&nbsp;This<br>
+information&nbsp;is&nbsp;sent&nbsp;through&nbsp;an&nbsp;HTML&nbsp;POST&nbsp;request&nbsp;and&nbsp;is&nbsp;captured&nbsp;and<br>
+removed&nbsp;from&nbsp;the&nbsp;database.</tt></dd></dl>
+ <dl><dt><a name="-search"><strong>search</strong></a>()</dt><dd><tt>The&nbsp;purpose&nbsp;of&nbsp;this&nbsp;function&nbsp;is&nbsp;to&nbsp;render&nbsp;the&nbsp;site&nbsp;that&nbsp;allows&nbsp;users&nbsp;to<br>
+search&nbsp;for&nbsp;other&nbsp;users'&nbsp;profiles.</tt></dd></dl>
+ <dl><dt><a name="-search_post"><strong>search_post</strong></a>()</dt><dd><tt>The&nbsp;purpose&nbsp;of&nbsp;this&nbsp;function&nbsp;is&nbsp;to&nbsp;obtain&nbsp;the&nbsp;username&nbsp;a&nbsp;user&nbsp;wants&nbsp;to<br>
+search&nbsp;for.&nbsp;This&nbsp;information&nbsp;is&nbsp;sent&nbsp;through&nbsp;an&nbsp;HTML&nbsp;POST&nbsp;request&nbsp;and<br>
+is&nbsp;captured&nbsp;and&nbsp;redirected&nbsp;to&nbsp;the&nbsp;show_user&nbsp;function.</tt></dd></dl>
+ <dl><dt><a name="-show_user"><strong>show_user</strong></a>(username=None)</dt><dd><tt>The&nbsp;purpose&nbsp;of&nbsp;this&nbsp;function&nbsp;is&nbsp;to&nbsp;allow&nbsp;non-registered&nbsp;and&nbsp;registered<br>
+users&nbsp;to&nbsp;view&nbsp;another&nbsp;user's&nbsp;profile.&nbsp;It&nbsp;searches&nbsp;for&nbsp;the&nbsp;&lt;username&gt;<br>
+in&nbsp;the&nbsp;database&nbsp;and&nbsp;renders&nbsp;the&nbsp;profile.&nbsp;If&nbsp;the&nbsp;usernae&nbsp;does&nbsp;not&nbsp;exist,<br>
+it&nbsp;returns&nbsp;a&nbsp;404&nbsp;error.</tt></dd></dl>
+</td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>app</strong> = &lt;Flask 'source.__init__'&gt;<br>
+<strong>callback_url</strong> = 'http://localhost:5000/follow_twitter2'<br>
+<strong>consumer_key</strong> = 'OdgalfvMIxmDamj1S9TV6NbC0'<br>
+<strong>consumer_secret</strong> = '0rS6CK5wg80USvR6X5PYQZHO3kdDDR0YP2PqYf8a7Nnz5JXaHH'<br>
+<strong>current_user</strong> = None<br>
+<strong>db</strong> = &lt;SQLAlchemy engine=None&gt;<br>
+<strong>main</strong> = &lt;Blueprint 'main'&gt;<br>
+<strong>request</strong> = &lt;LocalProxy unbound&gt;<br>
+<strong>session</strong> = &lt;LocalProxy unbound&gt;<br>
+<strong>testaccounts</strong> = ['@nimcanttweet', '@twitter']</td></tr></table>
+</body></html>
