@@ -28,22 +28,23 @@ def signup_post():
     and is captured and added to the user database.
     """
     email = request.form.get('email')
-    name = request.form.get('name')
+    username = request.form.get('username')
     password = request.form.get('password')
 
     # Check if the query returns a User
     # This means a user with this email already exists in the Database
-    user = User.query.filter_by(email=email).first()
+    user1 = User.query.filter_by(email=email).first()
+    user2 = User.query.filter_by(name=username).first()
 
     # If a user is found, flash a warning
     # Reload the Sign Up page to try again
-    if user:
-        flash("An account associated with this email address already exists")
+    if user1 or user2:
+        flash("Username or Email address already exists. Please try again")
         return redirect(url_for('auth.signup'))
 
     # Create a new user from the data provided
     # Password is hashed before saving
-    new_user = User(email=email, name=name,
+    new_user = User(email=email, name=username,
                     password=generate_password_hash(password, method='sha256'))
 
     # Update the Database to include the new user
