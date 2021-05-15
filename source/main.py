@@ -6,12 +6,9 @@ from flask import Blueprint, render_template, redirect, url_for, request, abort,
 from flask_login import login_required, current_user
 from source.__init__ import db, create_app
 from source.models import User, Site
-
 import tweepy
 
 main = Blueprint('main', __name__)
-
-testaccounts = ["@nimcanttweet", "@twitter"]
 
 app = create_app()
 
@@ -32,11 +29,6 @@ def profile():
     It requires the user to be logged into their account before they can view
     their own profile.
     """
-    # TODO: Create SNS Table in DB and template this
-    # TODO: Allow users to add their own SNS
-    # TODO: Allow users that are not logged in to view certain parts of another
-    # user's profile
-
     return render_template('profile.html', user=current_user,
                            sns=current_user.sns, handle=None, success=None)
 
@@ -67,6 +59,7 @@ def add_site_post():
     new_site = Site(site=site, handle=handle, link=link)
     current_user.sns.append(new_site)
 
+    # Update the database
     db.session.add(new_site)
     db.session.commit()
 
@@ -128,10 +121,10 @@ def search_post():
 @main.route('/user/<username>')
 def show_user(username=None):
     """
-        The purpose of this function is to allow non-registered and registered
-        users to view another user's profile. It searches for the <username>
-        in the database and renders the profile. If the usernae does not exist,
-        it returns a 404 error.
+    The purpose of this function is to allow non-registered and registered
+    users to view another user's profile. It searches for the <username>
+    in the database and renders the profile. If the usernae does not exist,
+    it returns a 404 error.
     """
     if username and (current_user.is_anonymous or username != current_user.name):
         user = User.query.filter_by(name=username).first()
@@ -145,10 +138,21 @@ def show_user(username=None):
     return render_template(template, user=user, sns=user.sns, success=None, handle=None)
 
 
+@main.errorhandler(404)
+def not_found(error):
+    """
+    The purpose of this function is to render a 404 page when a profile page
+    for a given username does not exist.
+    """
+    return render_template('404.html'), 404
+
+
 # Globals needed for twitter following: TODO find way to hide secret and key
 callback_url = 'http://localhost:5000/follow_twitter2'
 consumer_key = "OdgalfvMIxmDamj1S9TV6NbC0"
 consumer_secret = "0rS6CK5wg80USvR6X5PYQZHO3kdDDR0YP2PqYf8a7Nnz5JXaHH"
+
+testaccounts = ["@nimcanttweet", "@twitter"]
 
 
 @main.route('/follow_twitter', methods=['GET', 'POST'])
@@ -169,6 +173,11 @@ def follow_test():
 @main.route('/follow_twitter2')
 @login_required
 def follow_twitter():
+    """
+    The purpose of this function is to integrate Twitter API functionality.
+    It uses Tweepy to connect with the user's account and allows that user
+    to follow another user's Twitter handle from within the Flare app.
+    """
     success = None
     handle = None
     request_token = session['request_token']
@@ -182,21 +191,16 @@ def follow_twitter():
 
     try:
         api.create_friendship(session['handle'])
-        success = "Followed account!"
+        success = "Followed Account!"
         handle = session['handle']
         success = True
     except:
-        print("Could not follow account:")
+        print("Could Not Follow Account:")
         print(session['handle'])
 
     return redirect(url_for('main.profile'))
 
 
-@main.errorhandler(404)
-def not_found(error):
-    return render_template('404.html'), 404
-
-
 if __name__ == '__main__':
-    db.create_all(app=create_app())  # create the SQLite database
-    app.run(debug=True)  # run the flask app on debug mode
+    db.create_all(app=create_app())
+    app.run(debug=True)
