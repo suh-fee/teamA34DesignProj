@@ -20,6 +20,15 @@ lint: FORCE
 
 dev_env: FORCE
 	pip3 install -r $(REQ_DIR)/requirements.txt
+	
+heroku:
+	curl https://cli-assets.heroku.com/install.sh | sh
+	heroku login
+	heroku apps:create flake34
+	heroku git:remote -a flake34
+	heroku config:set PYTHONPATH="/app"
+	heroku config:set GAME_HOME="/app"
+	echo "web: gunicorn source.main:app" > Procfile
 
 docs: FORCE
 	cd $(SRC_DIR); make docs
