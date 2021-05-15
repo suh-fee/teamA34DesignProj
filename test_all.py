@@ -56,7 +56,7 @@ def test_post_signup(client):
     rv = client.post('/signup', data=dict(
         email = "test@test.com",
         username = "testName",
-        password1 = "testPassword"
+        password1 = "testPassword",
         password2 = "testPassword"
     ), follow_redirects=True)
     assert b'Login' in rv.data
