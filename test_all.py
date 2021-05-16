@@ -42,8 +42,8 @@ def add_site(client):
     require a site added in the account can be tested (like removing a site).
     """
     rv = client.post('/add_site', data=dict(
-        site="YouTube",
-        handle="PewDiePie",
+        sns="YouTube",
+        snsuser="PewDiePie",
         link="https://www.youtube.com/user/PewDiePie"
     ), follow_redirects=True)
     return rv
@@ -129,7 +129,7 @@ def test_post_remove_site(client):
     login(client)
     add_site(client)
     rv = client.post('/remove_site', data=dict(
-        handle="PewDiePie"
+        snsuser="PewDiePie"
     ), follow_redirects=True)
     assert b'Linked Accounts' in rv.data
 
