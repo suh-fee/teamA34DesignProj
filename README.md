@@ -14,7 +14,7 @@ User can also add unique website links to their Flare account, allowing easy por
 **TEAM:** Ailyn Tyagi, Maria Mancz, Nassir Ali, Safi Hasani
 
 ## Instructions:
-Install the libraries required to run the site
+Navigate to the project folder and install the libraries required to run the site
 
     $ make dev_env
     
@@ -33,8 +33,9 @@ To view the test output, navigate to `https://www.travis-ci.org`
     + Click the files tab, and the file-by-file information will be there
 
 ## Make Targets:
-`make prod`
-`make tests`
+`make prod`: Target to push to the GitHub repository after running tests.
+
+`make tests`: Target to run the tests implemented.
 
 `make dev_env`: Target to install all of the requirements needed to set up the development environment.
 
