@@ -19,7 +19,7 @@ lint: FORCE
 	$(LINTER) $(SRC_DIR)/*.py
 
 dev_env: FORCE
-	pip3 install -r $(REQ_DIR)/requirements.txt
+	pip3 install -r $(REQ_DIR)/requirements-dev.txt
 	
 heroku:
 	curl https://cli-assets.heroku.com/install.sh | sh
