@@ -6,6 +6,7 @@ install:
 env:
   global:
     - PYTHONPATH=$(pwd):$PYTHONPATH
+    - FLARE_HOME=$(pwd)
     - CODECOV_TOKEN=17ea0d7e-6284-4834-8b03-506408fdd9d0
 
 deploy:
