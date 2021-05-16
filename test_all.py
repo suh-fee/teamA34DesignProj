@@ -112,8 +112,8 @@ def test_get_add_site(client):
 def test_post_add_site(client):
     login(client)
     rv = client.post('/add_site', data=dict(
-        site="YouTube",
-        handle="PewDiePie",
+        sns="YouTube",
+        snsuser="PewDiePie",
         link="https://www.youtube.com/user/PewDiePie"
     ), follow_redirects=True)
     assert b'Linked Accounts' in rv.data
