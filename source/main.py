@@ -139,15 +139,6 @@ def show_user(username=None):
     return render_template(template, user=user, sns=user.sns, success=None, handle=None)
 
 
-@main.errorhandler(404)
-def not_found(error):
-    """
-    The purpose of this function is to render a 404 page when a profile page
-    for a given username does not exist.
-    """
-    return render_template('404.html'), 404
-
-
 # Globals needed for twitter following: TODO find way to hide secret and key
 callback_url = 'http://localhost:5000/follow_twitter2'
 consumer_key = "OdgalfvMIxmDamj1S9TV6NbC0"
@@ -202,6 +193,15 @@ def follow_twitter():
     return redirect(url_for('main.profile'))
 
 
+@app.errorhandler(404)
+def not_found(error):
+    """
+    The purpose of this function is to render a custom 404 page when a request
+    to a non-existing page is made.
+    """
+    return render_template('404.html'), 404
+
+
 if __name__ == '__main__':
-    db.create_all(app=create_app())
+    db.create_all(app=app)
     app.run(debug=True)
