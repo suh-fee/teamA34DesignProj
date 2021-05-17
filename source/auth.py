@@ -51,7 +51,8 @@ def signup_post():
     # Create a new user from the data provided
     # Password is hashed before saving
     new_user = User(email=email, name=username,
-                    password=generate_password_hash(password1, method='sha256'))
+                    password=generate_password_hash(password1,
+                                                    method='sha256'))
 
     # Update the Database to include the new user
     db.session.add(new_user)

@@ -27,7 +27,8 @@ class User(db.Model, UserMixin):
         """
         # TODO: Allow users to upload their own profile image
         digest = md5(self.email.lower().encode('utf-8')).hexdigest()
-        return 'https://www.gravatar.com/avatar/{}?d=identicon&s={}'.format(digest, size)
+        return 'https://www.gravatar.com/avatar/' \
+               '{}?d=identicon&s={}'.format(digest, size)
 
 
 class Site(db.Model):

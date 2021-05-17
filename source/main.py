@@ -2,7 +2,8 @@
 This is the file containining all of the non-auth routes for Flare app.
 """
 
-from flask import Blueprint, render_template, redirect, url_for, request, abort, session
+from flask import Blueprint, render_template, redirect, \
+    url_for, request, abort, session
 from flask_login import login_required, current_user
 from source.__init__ import db, create_app
 from source.models import User, Site
@@ -127,7 +128,8 @@ def show_user(username=None):
     in the database and renders the profile. If the usernae does not exist,
     it returns a 404 error.
     """
-    if username and (current_user.is_anonymous or username != current_user.name):
+    if username and (current_user.is_anonymous or
+                     username != current_user.name):
         user = User.query.filter_by(name=username).first()
         if user is None:
             abort(404)
@@ -136,7 +138,8 @@ def show_user(username=None):
     if username:
         template = 'profile.html'
 
-    return render_template(template, user=user, sns=user.sns, success=None, handle=None)
+    return render_template(template, user=user,
+                           sns=user.sns, success=None, handle=None)
 
 
 # Globals needed for twitter following: TODO find way to hide secret and key
@@ -170,8 +173,6 @@ def follow_twitter():
     It uses Tweepy to connect with the user's account and allows that user
     to follow another user's Twitter handle from within the Flare app.
     """
-    success = None
-    handle = None
     request_token = session['request_token']
     del session['request_token']
     auth = tweepy.OAuthHandler(consumer_key, consumer_secret, callback_url)
@@ -183,10 +184,7 @@ def follow_twitter():
 
     try:
         api.create_friendship(session['handle'])
-        success = "Followed Account!"
-        handle = session['handle']
-        success = True
-    except:
+    except Exception:
         print("Could Not Follow Account:")
         print(session['handle'])
 
