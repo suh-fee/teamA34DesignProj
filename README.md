@@ -24,7 +24,7 @@ Run the site
     
 On any web browser, navigate to `localhost:5000` to view the site.
 
-To view the test output, navigate to `https://www.travis-ci.org`
+To view the test output, navigate to `https://www.travis-ci.com`
 + On the left hand side you should see this repo
 + Clicking on it will show the Travis information 
 + At the bottom of the Travis output summary coverage information will be displayed
