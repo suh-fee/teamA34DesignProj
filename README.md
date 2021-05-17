@@ -48,17 +48,18 @@ To view the test output, navigate to `https://www.travis-ci.org`
 *Note: Documents from last semester are not present since the idea changed this semester.
 
 ## Timeline:
-APIs that we are aiming to add:
-- Milestone 1: Generic URLs
-- Milestone 2: Twitter, Facebook
-- Milestone 3: LinkedIn, Instagram
-- Milestone 4: Generic Files (pdf, doc, jpeg)
 
-Features we intend on including:
-- Create/Delete account
+Features implemented:
+- Create/Delete Flare account
 - Add/Delete social media accounts/links
-- Add/Delete files
-- Follow social media account(s) from within Flare
+- View social media accounts from flare (clicking brings you to the page)
+- Follow twitter account(s) from within Flare
+- Search for existing Flare users
+
+Future APIs/File Types that we hope to add:
+- Facebook, Instagram
+- LinkedIn
+- Generic Files (pdf, doc, jpeg)
 
 API collection:
 https://python-twitter.readthedocs.io/en/latest/twitter.html#module-twitter.api
